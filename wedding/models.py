@@ -10,6 +10,7 @@ class Gift(models.Model):
     decs = models.CharField(max_length=1000)
     url = models.URLField()
     price = models.IntegerField()
+    accepted = models.BooleanField(default=False)
     proposed_by = models.ForeignKey('auth.User')
     created_date = models.DateTimeField(default=timezone.now)
 

@@ -4,7 +4,25 @@
 </head>
 <body>
 
-  LIST OF GIFTS
+  <p><h4><a href="">DODAJ NOWY PREZENT</a></h4></p>
+
+  <p><h4>NOWE PROPOZYCJE GOŚCI</h4></p>
+
+  {% for gift in new_gifts %}
+      <div>
+        <a href=""> {{ gift.name }} </a>  price: {{ gift.price }} 
+        <p> accepted: {{ gift.accepted }} </p>
+      </div>
+  {% endfor %}
+
+  <p><h4>LISTA PREZENTÓW</h4></p>
+
+  {% for gift in accepted_gifts %}
+      <div>
+        <a href=""> {{ gift.name }} </a>  price: {{ gift.price }} 
+        <p> accepted: {{ gift.accepted }} </p>
+      </div>
+  {% endfor %}
 
 </body>
 </html>
