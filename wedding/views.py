@@ -2,4 +2,5 @@
 
 from django.shortcuts import render
 
-# Create your views here.
+def gift_list(request):
+    return render(request, 'wedding/gift_list.html', {})
