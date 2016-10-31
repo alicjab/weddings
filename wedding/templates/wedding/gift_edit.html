@@ -1,0 +1,10 @@
+{% extends 'wedding/base.html' %}
+
+{% block content %}
+    <h1>Nowy prezent</h1>
+    <form method="POST" class="gift-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Zapisz</button>
+    </form>
+{% endblock %}

@@ -1,8 +1,11 @@
 #-*- coding: utf-8 -*-
 
-from django.shortcuts import render
-from django.shortcuts import render, get_object_or_404
+# from django.shortcuts import render
+# from django.shortcuts import redirect
 
+from django.shortcuts import render, get_object_or_404, redirect
+
+from .forms import GiftForm
 
 from .models import Gift
 
@@ -14,3 +17,28 @@ def gift_list(request):
 def gift_detail(request, id):
     gift = get_object_or_404(Gift, id=id)
     return render(request, 'wedding/gift_detail.html', {'gift' : gift})
+
+def gift_new(request):
+    if request.method == "POST":
+        form = GiftForm(request.POST)
+        if form.is_valid():
+            gift = form.save(commit=False)
+            gift.proposed_by = request.user
+            gift.save()
+            return redirect('gift_detail', id=gift.id)
+    else:
+        form = GiftForm()
+    return render(request, 'wedding/gift_edit.html', {'form': form})
+
+def gift_edit(request, id):
+    gift = get_object_or_404(Gift, id=id)
+    if request.method == "POST":
+        form = GiftForm(request.POST, instance=gift)
+        if form.is_valid():
+            gift = form.save(commit=False)
+            gift.proposed_by = request.user
+            gift.save()
+            return redirect('gift_detail', id=gift.id)
+    else:
+        form = GiftForm(instance=gift)
+    return render(request, 'wedding/gift_edit.html', {'form': form})

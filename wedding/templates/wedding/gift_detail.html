@@ -2,6 +2,7 @@
 
 {% block content %}
     <div class="gift">
+        <a class="btn btn-default" href="{% url 'gift_edit' id=gift.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
         <h1>{{ gift.name }}</h1>
         <p>{{ gift.decs }}</p>
         <a href="{{ gift.url }}">Witryna</a>

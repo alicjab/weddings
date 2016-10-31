@@ -2,8 +2,9 @@
 
 {% block content %}
 
+    <!-- To powinno pojsc do base.html i znajnować się gdzieś po prawej stronie (?) -->
     <div class="add_new_gift">
-        <p><h4><a href="">DODAJ NOWY PREZENT</a></h4></p>
+        <p><h4><a href="{% url 'gift_new' %}">DODAJ NOWY PREZENT</a></h4></p>
     </div>
 
     <div class="new_gifts">
