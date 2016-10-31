@@ -4,6 +4,7 @@ myvenv
 db.sqlite3
 .DS_Store
 
+*/*.pyc
 .Python
 bin/
 include/
