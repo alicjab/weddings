@@ -26,10 +26,24 @@ h1, h2, h3, h4 {
 }
 
 .content {
-    margin-left: 40px;
+    margin: 40px;
 }
 
 /*.new_gifts h1, .accepted_gifts h1 {
     text-align: center;
     vertical-align: middle;
 } */
+
+.gift-list-elem {
+    border: 1px solid #e0fff5;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #e0fff5;
+}
+
+.logged-user-info {
+    text-align: right;
+    vertical-align: middle;
+    margin-right: 30px;
+}

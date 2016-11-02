@@ -11,6 +11,14 @@
 
     <body>
 
+        <div class="logged-user-info">
+            {% if user %}
+                <h4>Zalogowany jako: {{ user.username }} </h4>
+            {% else %}
+                <h4>Zaloguj się</h4>
+            {% endif %}
+        </div>
+
         <div class="page-header">
             <h1><a>Prezenty ślubne dla Bolka i Lolka</a></h1>
         </div>

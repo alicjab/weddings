@@ -25,7 +25,7 @@ SECRET_KEY = 'rjv*0nc#%*0f*9qt7rdauwzaq(t&e50av%*ov&ce%c95rxp-u5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [], #os.path.join(BASE_DIR, 'wedding/templates/')
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,6 +67,12 @@ TEMPLATES = [
         },
     },
 ]
+
+# TEMPLATE_DIRS = (
+#     os.path.join(BASE_DIR, 'wedding/templates/'),
+# )
+
+
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
@@ -123,4 +129,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'public', 'static')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
+)
+
+ADMINS = ( 
+    # ('Your Name', 'your_email@example.com'),
+    ('Alicja', 'alicjabaszak@gmail.com'), 
 )

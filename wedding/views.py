@@ -1,17 +1,14 @@
 #-*- coding: utf-8 -*-
 
-# from django.shortcuts import render
-# from django.shortcuts import redirect
-
 from django.shortcuts import render, get_object_or_404, redirect
 
 from .forms import GiftForm
-
 from .models import Gift
 
 def gift_list(request):
     new_gifts = Gift.objects.filter(accepted=False)
     accepted_gifts = Gift.objects.filter(accepted=True)
+    # 'user' : request.user, 
     return render(request, 'wedding/gift_list.html', {'new_gifts' : new_gifts, 'accepted_gifts' : accepted_gifts})
 
 def gift_detail(request, id):
@@ -42,3 +39,17 @@ def gift_edit(request, id):
     else:
         form = GiftForm(instance=gift)
     return render(request, 'wedding/gift_edit.html', {'form': form})
+
+
+def gift_delete(request, id):
+    gift = get_object_or_404(Gift, id=id)
+    Gift.objects.filter(id=id).delete()
+    # Trzeba bedzie dodac info ze udalo sie usunac
+    new_gifts = Gift.objects.filter(accepted=False)
+    accepted_gifts = Gift.objects.filter(accepted=True)
+    return render(request, 'wedding/gift_list.html', {'new_gifts' : new_gifts, 'accepted_gifts' : accepted_gifts})
+
+
+def error404(request):
+    return render(request, 'wedding/404.html')
+

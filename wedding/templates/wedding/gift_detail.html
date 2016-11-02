@@ -1,11 +1,20 @@
 {% extends 'wedding/base.html' %}
 
 {% block content %}
-    <div class="gift">
+    <div class="gift_detail">
         <a class="btn btn-default" href="{% url 'gift_edit' id=gift.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+
         <h1>{{ gift.name }}</h1>
         <p>{{ gift.decs }}</p>
+
         <a href="{{ gift.url }}">Witryna</a>
+
+        {% if gift.accepted %}
+            Number of athletes: {{ athlete_list|length }}
+        {% else %}
+            <!-- <a class="btn btn-default" href="{% url 'gift_edit' id=gift.id %}"><span class="glyphicon glyphicon-pencil"></span></a>  -->
+            <a class="btn btn-default" href="{% url 'gift_delete' id=gift.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
 
     </div>
 {% endblock %}

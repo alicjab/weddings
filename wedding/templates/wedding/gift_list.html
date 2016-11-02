@@ -11,7 +11,7 @@
         <p><h1>NOWE PROPOZYCJE GOŚCI</h1></p>
 
         {% for gift in new_gifts %}
-            <div class="gift">
+            <div class="gift-list-elem">
                 <h4><a href="{% url 'gift_detail' id=gift.id %}"> {{ gift.name }} </a>  {{ gift.price }} zł <h4>
                 <p> accepted: {{ gift.accepted }} </p>
             </div>
@@ -23,7 +23,7 @@
         <p><h1>LISTA PREZENTÓW</h1></p>
 
         {% for gift in accepted_gifts %}
-            <div class="gift">
+            <div class="gift-list-elem">
                 <h4><a href="{% url 'gift_detail' id=gift.id %}"> {{ gift.name }} </a>  {{ gift.price }} zł <h4>
                 <p> accepted: {{ gift.accepted }} </p>
             </div>
