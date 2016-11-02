@@ -7,6 +7,8 @@
         <p><h4><a href="{% url 'gift_new' %}">DODAJ NOWY PREZENT</a></h4></p>
     </div>
 
+
+    {% if user.is_superuser %}
     <div class="new_gifts">
         <p><h1>NOWE PROPOZYCJE GOŚCI</h1></p>
 
@@ -17,6 +19,7 @@
             </div>
         {% endfor %}
     </div>
+    {% endif %}
 
     <div class="accepted_gifts">
 
