@@ -21,6 +21,8 @@ def gift_new(request):
         if form.is_valid():
             gift = form.save(commit=False)
             gift.proposed_by = request.user
+            if request.user.is_superuser:
+                gift.accepted = True
             gift.save()
             return redirect('gift_detail', id=gift.id)
     else:
