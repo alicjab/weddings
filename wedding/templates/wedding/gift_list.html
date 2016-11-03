@@ -11,11 +11,16 @@
     {% if user.is_superuser %}
     <div class="new_gifts">
         <p><h1>NOWE PROPOZYCJE GOŚCI</h1></p>
+        <p>Wejdź w szczegóły aby zaakceptować lub odrzucić propozycję</p>
 
         {% for gift in new_gifts %}
             <div class="gift-list-elem">
-                <h4><a href="{% url 'gift_detail' id=gift.id %}"> {{ gift.name }} </a>  {{ gift.price }} zł <h4>
-                <p> accepted: {{ gift.accepted }} </p>
+                <div>
+                    <div class="gift-list-elem-price"><h4>{{ gift.price }} zł </h4></div>
+                    <div class="gift-list-elem-name"><h4><a href="{% url 'gift_detail' id=gift.id %}"> {{ gift.name }} </a></h4></div>
+                </div>
+                <div class="gift-list-elem-proposed-by">Zaproponowany przez: {{ gift.proposed_by }} </div>
+
             </div>
         {% endfor %}
     </div>
@@ -27,8 +32,10 @@
 
         {% for gift in accepted_gifts %}
             <div class="gift-list-elem">
-                <h4><a href="{% url 'gift_detail' id=gift.id %}"> {{ gift.name }} </a>  {{ gift.price }} zł <h4>
-                <p> accepted: {{ gift.accepted }} </p>
+                <div>
+                    <div class="gift-list-elem-price"><h4>{{ gift.price }} zł </h4></div>
+                    <div class="gift-list-elem-name"><h4><a href="{% url 'gift_detail' id=gift.id %}"> {{ gift.name }} </a></h4></div>
+                </div>
             </div>
 
         {% endfor %}

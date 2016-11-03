@@ -37,7 +37,7 @@ h1, h2, h3, h4 {
 .gift-list-elem {
     border: 1px solid #e0fff5;
     border-radius: 20px;
-    padding: 10px;
+    padding: 10px 30px 10px 30px;
     margin-bottom: 10px;
     background-color: #e0fff5;
 }
@@ -46,4 +46,16 @@ h1, h2, h3, h4 {
     text-align: right;
     vertical-align: middle;
     margin-right: 30px;
+}
+
+.gift-list-elem-name {
+    overflow: hidden;
+}
+
+.gift-list-elem-price {
+    text-align: right;
+    width: 250px;
+    padding-right: 50px;
+    padding-left: 50px;
+    float: right;
 }
